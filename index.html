@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assemble Snack</title>
+
+    <!-- VUE -->
+    <script src="./vue.js"></script>
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+</head>
+<body>
+
+		<!-- As a heading -->
+		<nav class="navbar bg-light">
+			<div class="container">
+				<span class="navbar-brand mb-0 h1">Assemble Your Snack</span>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div id="app">
+				<div class="row">
+
+					<div class="col-md-6">
+						<div class="row my-2">
+							<div class="col text-center">
+								<img class="img-fluid" :src="bread[0]" alt="">
+								<img class="img-fluid" :src="lettuce" alt="">
+								<img class="img-fluid" :src="ketchup" alt="">
+								<img class="img-fluid" :src="mustard" alt="">
+								<img class="img-fluid" :src="mayonnaise" alt="">
+								<img class="img-fluid" :src="hamburguer" alt="">
+								<img class="img-fluid" :src="bread[1]" alt="">
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6" v-if="step == 1">
+						<!-- TYPE OF BREAD -->
+						<div class="row my-2">
+							<div class="col">
+								<div class="card">
+									<div class="card-header">TYPE OF BREAD</div>
+									<div class="card-body">
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="radio" value="sesame" v-model="inputBread">
+											<label class="form-check-label">Sesame</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="radio" value="australian" v-model="inputBread">
+											<label class="form-check-label">Australian</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- SALADS -->
+						<div class="row my-2">
+							<div class="col">
+								<div class="card">
+									<div class="card-header">SALADS</div>
+									<div class="card-body">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="lettuce" v-model="inputSalads">
+											<label class="form-check-label">Lettuce</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- SAUCES -->
+						<div class="row my-2">
+							<div class="col">
+								<div class="card">
+									<div class="card-header">SAUCES</div>
+									<div class="card-body">
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" value="ketchup" v-model="inputSauces">
+											<label class="form-check-label">Ketchup</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" value="mustard" v-model="inputSauces">
+											<label class="form-check-label">Mustard</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" value="mayonnaise" v-model="inputSauces">
+											<label class="form-check-label">Mayonnaise</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- TYPE OF HAMBURGUER -->
+						<div class="row my-2">
+							<div class="col">
+								<div class="card">
+									<div class="card-header">TYPE OF HAMBURGUER</div>
+									<div class="card-body">
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="radio" value="bovine" v-model="inputHamburguer">
+											<label class="form-check-label">Bovine</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="radio" value="chicken" v-model="inputHamburguer">
+											<label class="form-check-label">Chicken</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="radio" value="soy" v-model="inputHamburguer">
+											<label class="form-check-label">Soy</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row my-2">
+							<div class="col d-flex justify-content-end">
+								<button type="button" class="btn btn-primary" @click="order()">Order</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6" v-if="step == 2">
+						<div class="row my-2">
+							<div class="col">
+								<div class="card">
+									<div class="card-header">INFORM YOUR DATA</div>
+									<div class="card-body">
+										<div class="mb-3">
+											<label class="form-label">Name</label>
+											<input type="text" class="form-control" v-model="inputName">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">Address</label>
+											<input type="text" class="form-control" v-model="inputAddress">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row my-2">
+							<div class="col d-flex justify-content-between">
+								<button type="button" class="btn btn-warning" @click="step -= 1">Back to Snack</button>
+								<button type="button" class="btn btn-success" @click="confirmOrder()">Confirm</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6" v-if="step == 3">
+						<div class="row my-2">
+							<div class="col">
+								<div class="card">
+									<div class="card-header">CONFIRMED ORDER</div>
+									<div class="card-body">
+										<p>Now just wait 10 minutes!</p>
+										<p>We will call you soon &#128523&#127828</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row my-2">
+							<div class="col d-flex justify-content-between">
+								<button type="button" class="btn btn-primary" @click="step = 1">Repeat Order</button>
+								<button type="button" class="btn btn-success" @click="newOrder()">New Order</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+						data: {
+							inputBread: '',
+							inputSalads: [],
+							inputSauces: [],
+							inputHamburguer: '',
+							step: 1,
+							inputName: '',
+							inputAddress: '',
+							asyncNewOrder: null
+						},
+						methods: {
+							order() {
+								if(this.inputBread && this.inputHamburguer) {
+									this.step = 2
+								} else {
+									alert('You need to select at least one bun and one hamburger')
+								}
+							},
+							confirmOrder() {
+								if (this.inputName && this.inputAddress) {
+									this.step = 3
+
+									// enter the code to make an http request by sending the request data to the backend
+
+									this.asyncNewOrder = setTimeout(() => this.newOrder(), 7000)
+								} else {
+									alert('You need to provide your name and address')
+								}
+							},
+							newOrder() {
+								this.step = 1
+								this.inputBread = ''
+								this.inputSalads = []
+								this.inputSauces = []
+								this.inputHamburguer = ''
+								this.inputName = ''
+								this.inputAddress = ''
+							}
+						},
+						computed: {
+							bread() {
+								switch(this.inputBread) {
+									case 'sesame':
+										return ['images/sesame_bread_top.png', 'images/sesame_bread_bottom.png']
+									case 'australian':
+										return ['images/australian_bread_top.png', 'images/australian_bread_bottom.png']
+									default:
+										return ['images/silhouette/bread_top.png', 'images/silhouette/bread_bottom.png']
+								}
+							},
+							lettuce() {
+								if(this.inputSalads.includes('lettuce')) {
+									return 'images/lettuce.png'	
+								}
+								return 'images/silhouette/lettuce.png'
+							},
+							ketchup() {
+								if(this.inputSauces.includes('ketchup')) {
+									return 'images/ketchup.png'	
+								}
+								return 'images/silhouette/sauce.png'
+							},
+							mustard() {
+								if(this.inputSauces.includes('mustard')) {
+									return 'images/mustard.png'	
+								}
+								return 'images/silhouette/sauce.png'
+							},
+							mayonnaise() {
+								if(this.inputSauces.includes('mayonnaise')) {
+									return 'images/mayonnaise.png'	
+								}
+								return 'images/silhouette/sauce.png'
+							},
+							hamburguer() {
+								switch(this.inputHamburguer) {
+									case 'bovine':
+										return 'images/bovine.png'
+									case 'chicken':
+										return 'images/chicken.png'
+									case 'soy':
+										return 'images/soy.png'
+									default:
+										return 'images/silhouette/hamburguer.png'
+								}	
+							}
+						},
+						watch: {
+							step(newValue) {
+								if(newValue != 3) {
+									clearTimeout(this.asyncNewOrder)
+								}
+							}
+						}
+        })
+    </script>
+
+    <!-- Javascript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</body>
+</html>
