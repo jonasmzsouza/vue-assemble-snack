@@ -1,18 +1,18 @@
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/jonasmzsouza/assemble-snack?style=flat-square&color=f1783f">
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/jonasmzsouza/assemble-snack?style=flat-square&color=1f6feb">
-  <a href="https://github.com/jonasmzsouza/assemble-snack/commits/main">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/jonasmzsouza/assemble-snack/main?style=flat-square&color=2f74c0">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/jonasmzsouza/vue-assemble-snack?style=flat-square&color=f1783f">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/jonasmzsouza/vue-assemble-snack?style=flat-square&color=1f6feb">
+  <a href="https://github.com/jonasmzsouza/vue-assemble-snack/commits/main">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/jonasmzsouza/vue-assemble-snack/main?style=flat-square&color=2f74c0">
   </a>
 </p>
 
 <hr>
 
 <p align="center"> 
-  <a href="https://jonasmzsouza.github.io/assemble-snack/" target="_blank">
+  <a href="https://jonasmzsouza.github.io/vue-assemble-snack/" target="_blank">
     <img src="https://img.shields.io/static/v1?label=:&message=website&color=05bdba&style=for-the-badge&logo=netlify&logo-color=white"/>
   </a>
-  <img  src="https://raw.githubusercontent.com/jonasmzsouza/jonasmzsouza.github.io/main/assets/images/assemble-snack.jpg"  width="100%"  alt="screenshot assemble snack">
+  <img  src="https://raw.githubusercontent.com/jonasmzsouza/jonasmzsouza.github.io/main/assets/images/vue-assemble-snack.jpg"  width="100%"  alt="screenshot assemble snack">
 </p>
 <hr>
 
