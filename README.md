@@ -10,7 +10,7 @@
 
 <p align="center"> 
   <a href="https://jonasmzsouza.github.io/vue-assemble-snack/" target="_blank">
-    <img src="https://img.shields.io/static/v1?label=:&message=website&color=05bdba&style=for-the-badge&logo=netlify&logo-color=white"/>
+    <img src="https://img.shields.io/static/v1?label=:&message=website&color=05bdba&style=for-the-badge&logo=github&logo-color=white"/>
   </a>
   <img  src="https://raw.githubusercontent.com/jonasmzsouza/jonasmzsouza.github.io/main/assets/images/vue-assemble-snack.jpg"  width="100%"  alt="screenshot assemble snack">
 </p>
